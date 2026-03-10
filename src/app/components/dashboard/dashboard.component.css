@@ -20,7 +20,7 @@ h1 {
   color: #00bcd4;
 }
 
-/* CSS Grid para el layout */
+/* Grid con ajuste automático para las tarjetas */
 .clocks-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -28,7 +28,7 @@ h1 {
   justify-content: center;
 }
 
-/* Estilo Glassmorphism / Neumorphism */
+/* Diseño de tarjetas con efectos de transparencia y sombras */
 .clock-card {
   background: rgba(30, 30, 30, 0.7);
   backdrop-filter: blur(10px);
@@ -42,7 +42,7 @@ h1 {
   justify-content: center;
   text-align: center;
   
-  /* Sombra para efecto Neumorphism sutil en fondo oscuro */
+  /* Efecto de profundidad mediante sombras */
   box-shadow: 
     8px 8px 16px #0a0a0a, 
     -4px -4px 10px rgba(255, 255, 255, 0.05);

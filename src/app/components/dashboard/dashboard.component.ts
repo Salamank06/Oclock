@@ -12,9 +12,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-  /**
-   * Lista de relojes mundiales configurados
-   */
+  // Lista de ciudades con sus respectivas zonas horarias
   public clocks: WorldClock[] = [
     { city: 'Londres', timezone: 'Europe/London', currentTime: new Date() },
     { city: 'Tokyo', timezone: 'Asia/Tokyo', currentTime: new Date() },
@@ -27,23 +25,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
     { city: 'Seúl', timezone: 'Asia/Seoul', currentTime: new Date() }
   ];
 
-  /**
-   * Suscripción al servicio de tiempo para poder liberarla después
-   */
+  // Referencia a la suscripción para su posterior cancelación
   private timeSubscription?: Subscription;
 
   constructor(private timeService: TimeService) {}
 
   ngOnInit(): void {
-    // Nos suscribimos al observable que emite cada segundo
+    // Suscripción al servicio para actualizar la hora cada segundo
     this.timeSubscription = this.timeService.currentTime$.subscribe(() => {
       this.updateAllClocks();
     });
   }
 
-  /**
-   * Método que actualiza la hora de cada reloj en la lista
-   */
+  // Actualiza la hora de cada reloj en la lista
   private updateAllClocks(): void {
     this.clocks = this.clocks.map(clock => ({
       ...clock,
@@ -51,13 +45,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }));
   }
 
-  /**
-   * IMPORTANTE: Limpiar la suscripción al destruir el componente para evitar memory leaks.
-   */
+  // Cancela la suscripción al destruir el componente para evitar fugas de memoria
   ngOnDestroy(): void {
     if (this.timeSubscription) {
       this.timeSubscription.unsubscribe();
-      console.log('DashboardComponent: Suscripción al TimeService liberada.');
+      console.log('Suscripción cancelada correctamente.');
     }
   }
 }
