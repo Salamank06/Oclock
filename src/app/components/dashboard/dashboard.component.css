@@ -1,0 +1,93 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #121212;
+  color: #e0e0e0;
+  padding: 2rem;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #00bcd4;
+}
+
+/* CSS Grid para el layout */
+.clocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  justify-content: center;
+}
+
+/* Estilo Glassmorphism / Neumorphism */
+.clock-card {
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  /* Sombra para efecto Neumorphism sutil en fondo oscuro */
+  box-shadow: 
+    8px 8px 16px #0a0a0a, 
+    -4px -4px 10px rgba(255, 255, 255, 0.05);
+    
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clock-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    12px 12px 20px #080808, 
+    -6px -6px 12px rgba(255, 255, 255, 0.08);
+}
+
+.city-name {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.timezone-label {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+/* Reloj Digital */
+.digital-time {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00bcd4;
+  text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.date-label {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* Responsive fixes */
+@media (max-width: 600px) {
+  .clocks-grid {
+    grid-template-columns: 1fr;
+  }
+}

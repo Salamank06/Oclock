@@ -1,0 +1,18 @@
+<div class="dashboard-container">
+  <h1>Oclock - World Clocks</h1>
+  
+  <div class="clocks-grid">
+    @for (clock of clocks; track clock.city) {
+      <div class="clock-card">
+        <div class="city-name">{{ clock.city }}</div>
+        <div class="timezone-label">{{ clock.timezone }}</div>
+        <div class="digital-time">
+          {{ clock.currentTime | date: 'HH:mm:ss' }}
+        </div>
+        <div class="date-label">
+          {{ clock.currentTime | date: 'EEEE, d MMM' }}
+        </div>
+      </div>
+    }
+  </div>
+</div>
